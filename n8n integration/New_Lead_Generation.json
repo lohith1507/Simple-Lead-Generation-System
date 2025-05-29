@@ -1,0 +1,69 @@
+{
+  "name": "New Lead Generation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-lead",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ce967190-f888-4c32-98d2-163f9697e4a6",
+      "name": "Webhook",
+      "webhookId": "1e58a394-dc5e-4f29-9624-36ca911f5410"
+    },
+    {
+      "parameters": {
+        "sendTo": "lohithnani15@gmail.com",
+        "subject": "=New Lead Details",
+        "message": "=<p><strong>New Lead Received</strong></p>\n<p><strong>Name:</strong> {{$json[\"body\"][\"name\"]}}</p>\n<p><strong>Email:</strong> {{$json[\"body\"][\"email\"]}}</p>\n<p><strong>Company:</strong> {{$json[\"body\"][\"company\"]}}</p>\n<p><strong>Message:</strong> {{$json[\"body\"][\"message\"]}}</p>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        240,
+        0
+      ],
+      "id": "fff92e9e-f5b3-4d08-8b38-141ed0bf9eda",
+      "name": "Gmail",
+      "webhookId": "4e7f24bc-b690-4169-ab95-4c0de480efd3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "fgVRaEDWeqXlWwCi",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f7159d1f-a85f-4453-afa8-40ec35c88a7d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ca9c9f441becac00f2d549738c823a6da3bb6e5db6c8586b3ec300c7f780969b"
+  },
+  "id": "qwbMiXWvh94ygktQ",
+  "tags": []
+}
