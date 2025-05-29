@@ -5,7 +5,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/api/leads', async (req, res) => {
+app.post('/leads', async (req, res) => {
   const { name, email, company, message } = req.body;
 
   console.log(name, email);
